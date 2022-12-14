@@ -1,5 +1,5 @@
 theme: jekyll-theme-cayman
-title: Deep Learning for One-dimensional Consolidation
+title: Deep Learning for Poroelasticity
 description: Physics-Informed Neural Networks in Soil Mechanics
 markdown: kramdown
 kramdown:
