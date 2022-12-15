@@ -23,7 +23,7 @@ In this paper, application of PINNs to problems of poroelasticity is presented. 
 
 The governing equations of poroelasticity are a combination of the overall mass balance equation, the equilibrium or linear momentum balance equation and the linear elastic constitutive equations for stress-strain relationships.
 
-## Mass balance equation
+## Mass Balance Equation
 
 The general mass balance equation for a two-phase porous medium (fluid saturated porous solid matrix) under isothermal conditions, obtained from superposition of the individual phase mass balance equations, is given by
 
