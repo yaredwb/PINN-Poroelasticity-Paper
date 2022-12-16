@@ -107,3 +107,32 @@ $$
 \mu \frac{\partial^2 \bar{v}}{\partial \bar{x}^2} + (\lambda + 2 \mu) \frac{\partial^2 \bar{v}}{\partial \bar{z}^2} + (\lambda + \mu) \frac{\partial^2 \bar{u}}{\partial \bar{x} \partial \bar{z}} + \frac{\partial \bar{p}}{\partial \bar{z}} &= 0. \label{eq:mombalz} 
 \end{align}
 $$
+
+## Nondimensionalized Poroelastic Equations
+
+Equations \eqref{eq:masbalxz}, \eqref{eq:mombalx} and \eqref{eq:mombalz} are the the governing equations of poroelasticity in two dimensions where the field variables are the deformations in the $x$ and $z$ directions, $\bar{u}$ and $\bar{v}$, and the pore fluid pressure $ \bar{p} $. These equations can be nondimensionalized with respect to a certain dimension of the porous medium and the material parameters; \citet{barry1999exact}. Nondimensionalizing with respect to a typical length $l$ of the porous medium, the Lam\'e parameters $\lambda$ and $\mu$, the hydraulic conductivity $k$ and the fluid unit weight $\gamma_\mathrm{f}$ implies
+
+$$
+\begin{align}
+x &= \frac{\bar{x}}{l}, \quad z = \frac{\bar{z}}{l}, \quad t = \frac{(\lambda + 2\mu)k}{\gamma_\mathrm{f} l^2} \bar{t}, \label{eq:nondimxzt} \\
+u &= \frac{\bar{u}}{l}, \quad v = \frac{\bar{v}}{l}, \quad p = \frac{\bar{p}}{\lambda + 2\mu}. \label{eq:nondimuvp}  
+\end{align}
+$$
+
+Applying equations \eqref{eq:nondimxzt} and \eqref{eq:nondimuvp} to equations \eqref{eq:masbalxz}, \eqref{eq:mombalx} and \eqref{eq:mombalz} results in the following nondimensional poroelastic governing equations:
+
+$$
+\begin{align}
+\frac{\partial^2 u}{\partial t \partial x} + \frac{\partial^2 v}{\partial t \partial z} - \frac{\partial^2 p}{\partial x^2} - \frac{\partial^2 p}{\partial z^2} - \beta Q &= 0, \label{eq:masbalnondim} \\
+(\eta+1) \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial z^2} + \eta \frac{\partial^2 v}{\partial x \partial z} + (\eta+1) \frac{\partial p}{\partial x} &= 0, \label{eq:mombalnondimx} \\ 
+\frac{\partial^2 v}{\partial x^2} + (\eta+1) \frac{\partial^2 v}{\partial z^2} + \eta \frac{\partial^2 u}{\partial x \partial z} + (\eta+1) \frac{\partial p}{\partial z} &= 0, \label{eq:mombalnondimz}    
+\end{align}
+$$
+
+where $\eta$ and $\beta$ are nondimensional parameters which are functions of the real material parameters and are given by
+
+$$
+\begin{equation}
+\eta = 1 + \frac{\lambda}{\mu} \quad \text{and} \quad \beta = \frac{\gamma_\mathrm{f} h^2}{(\lambda + 2\mu) k}.
+\end{equation}
+$$
