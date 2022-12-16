@@ -60,3 +60,50 @@ $$
 $$
 
 wherein the hydraulic conductivity is assumed to be isotropic as described earlier.
+
+## Linear Momentum Balance Equation
+
+The overall linear momentum balance or equilibrium equation for a two-phase porous medium is given by
+
+$$
+\begin{equation}
+\nabla \cdot \boldsymbol{\overline{\sigma}} + \rho \boldsymbol{\overline{b}} = \mathbf 0,
+\label{eq:genmombal}
+\end{equation}
+$$
+
+where $ \boldsymbol{\overline{\sigma}} $ is the total stress carried by both the solid and fluid constituents of the porous medium, $ \rho $ is the overall density of the porous medium and $ \boldsymbol{\overline{b}} $ represents body forces. The effective stress concept differentiates the stresses carried by the solid and fluid constituents by introducing an effective stress $ \boldsymbol{\overline{\sigma}}^\prime = \boldsymbol{\overline{\sigma}} - \bar{p} \boldsymbol{I} $, where $ \boldsymbol{I} $ is an identity matrix. Introducing this into the previous equation and disregarding body forces gives
+
+$$
+\begin{equation}
+\nabla \cdot \boldsymbol{\overline{\sigma}}^\prime + \nabla \bar{p} = \mathbf 0.
+\label{eq:mombaleff}
+\end{equation}
+$$
+
+The equations of linear elasticity relate the effective stress $ \boldsymbol{\overline{\sigma}}^\prime $ and the deformation of the porous medium through
+
+$$
+\begin{equation}
+\boldsymbol{\overline{\sigma}}^\prime = 2 \mu \boldsymbol{\overline{\varepsilon}} + \lambda \text{tr}(\boldsymbol{\overline{\varepsilon}}) \mathbf I,
+\label{eq:elasticity}
+\end{equation}
+$$
+
+where $ \mu $ and $ \lambda $ are the Lam\'e parameters and $ \boldsymbol{\overline{\varepsilon}} $ is the infinitesimal strain tensor. The infinitesimal strain tensor is related to deformation through
+
+$$
+\begin{equation}
+\boldsymbol{\overline{\varepsilon}} = \frac{1}{2} \left( \nabla \boldsymbol{\overline{u}} + (\nabla \boldsymbol{\overline{u}})^\intercal \right).
+\label{eq:strain}
+\end{equation}
+$$
+
+For a two-dimensional problem, combining equations \eqref{eq:mombaleff}, \eqref{eq:elasticity} and \eqref{eq:strain} results in the following two equilibrium equations for an isotropic poroelastic medium:
+
+$$
+\begin{align}
+(\lambda + 2 \mu) \frac{\partial^2 \bar{u}}{\partial \bar{x}^2} + \mu \frac{\partial^2 \bar{u}}{\partial \bar{z}^2} + (\lambda + \mu) \frac{\partial^2 \bar{v}}{\partial \bar{x} \partial \bar{z}} + \frac{\partial \bar{p}}{\partial \bar{x}} &= 0, \label{eq:mombalx} \\
+\mu \frac{\partial^2 \bar{v}}{\partial \bar{x}^2} + (\lambda + 2 \mu) \frac{\partial^2 \bar{v}}{\partial \bar{z}^2} + (\lambda + \mu) \frac{\partial^2 \bar{u}}{\partial \bar{x} \partial \bar{z}} + \frac{\partial \bar{p}}{\partial \bar{z}} &= 0. \label{eq:mombalz} 
+\end{align}
+$$
