@@ -136,3 +136,13 @@ $$
 \eta = 1 + \frac{\lambda}{\mu} \quad \text{and} \quad \beta = \frac{\gamma_\mathrm{f} h^2}{(\lambda + 2\mu) k}.
 \end{equation}
 $$
+
+# Deep Learning Model
+
+The architecture of the deep learning model, the model hyper-parameters, the model performance metrics for training and automatic differentiation, which enables applying PDEs as constraints, are discussed in this section. 
+
+## Neural network architecture
+
+The deep learning model used for training is a fully-connected neural network where the number of hidden layers and hidden units per layer is adjusted depending on the problem under consideration. The input layer of the neural network uses sampled data from the spatial and temporal bounds of the poroelastic problem i.e. $\left\lbrace x, z, t\right\rbrace $ as training data. The neural network is design to predict the deformation of the porous medium and the pore fluid pressure i.e. $\left\lbrace \hat{u}, \hat{v}, \hat{p} \right\rbrace $, which is compared with the sample training data of $\left\lbrace u, v, p \right\rbrace $ to measure the performance of the model. The predicted deformations and pore pressure values are used to compute the residuals of the governing mass balance and equilibrium equations such that the model is trained to minimize the computed residuals.  An illustration of the neural network architecture is shown in the figure below.
+
+![NN}](assets/figs/nn.pdf){: .center-image }
