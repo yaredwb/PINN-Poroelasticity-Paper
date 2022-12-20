@@ -110,7 +110,7 @@ $$
 
 ## Nondimensionalized Poroelastic Equations
 
-Equations \eqref{eq:masbalxz}, \eqref{eq:mombalx} and \eqref{eq:mombalz} are the the governing equations of poroelasticity in two dimensions where the field variables are the deformations in the $x$ and $z$ directions, $\bar{u}$ and $\bar{v}$, and the pore fluid pressure $ \bar{p} $. These equations can be nondimensionalized with respect to a certain dimension of the porous medium and the material parameters; \citet{barry1999exact}. Nondimensionalizing with respect to a typical length $l$ of the porous medium, the Lam\'e parameters $\lambda$ and $\mu$, the hydraulic conductivity $k$ and the fluid unit weight $\gamma_\mathrm{f}$ implies
+Equations \eqref{eq:masbalxz}, \eqref{eq:mombalx} and \eqref{eq:mombalz} are the the governing equations of poroelasticity in two dimensions where the field variables are the deformations in the $x$ and $z$ directions, $\bar{u}$ and $\bar{v}$, and the pore fluid pressure $ \bar{p} $. These equations can be nondimensionalized with respect to a certain dimension of the porous medium and the material parameters; Barry and Mercer (1999). Nondimensionalizing with respect to a typical length $l$ of the porous medium, the Lam\'e parameters $\lambda$ and $\mu$, the hydraulic conductivity $k$ and the fluid unit weight $\gamma_\mathrm{f}$ implies
 
 $$
 \begin{align}
