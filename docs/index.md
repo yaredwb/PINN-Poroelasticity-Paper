@@ -152,3 +152,35 @@ The activation function used at the hidden units is $\sigma(\boldsymbol{x}) = Re
 ## Automatic Differentiation
 
 The poroelastic governing equations are applied as constraints in the neural network model by using automatic differentiation (AD) to evaluate the terms in the PDEs based on the model predicted outputs. This makes AD an in important element of the deep learning model. It should be emphasized that AD is different from other methods of computing derivatives using computers; Baydin et al. (2017). The four ways of computing derivatives on computers are: a) manually obtaining the derivatives and coding them; b) numerical differentiation using finite difference approximations; c) computer-based symbolic differentiation and subsequent evaluation based on the algebraic expression; and d) AD, which is the enabler in the neural network model here. The main difference between AD and the other methods is that AD computes the numerical values of the derivatives by using the rules of symbolic differentiation but by keeping track of the derivative values at different stages of numerical operation instead of obtaining the final expressions for the derivatives. This is done by exploiting the fact that any derivative computation, no matter how complex, is composed of a sequence of elementary arithmetic operations and elementary function evaluations. It applies the chain rule repeatedly to these operations until the desired derivative is computed. The fact that AD keeps track of the derivative values makes it computationally superior to the other two commonly used methods of computing derivatives, namely numerical differentiation and symbolic differentiation. The approach used by AD also makes it accurate at machine precision levels. For our problem here, once a deep neural network is designed with the input and output layers described in the previous section, AD is used to estimate the derivative terms in the governing equilibrium and mass balance equations. The model implementation is performed in `TensorFlow` and its AD capability is utilized. `TensorFlow` is an open-source software developed by the Google Brain team at Google and it is a symbolic math library that can be used for different tasks such as data flow, differentiable programming and machine learning; see Abadi et al. (2016).
+
+## Model Training and Hyper-parameters 
+
+The training data involves a selected sample from an exact analytical solution where data from the model spatial and temporal discretization bounds $\left\lbrace x, z, t \right\rbrace $ are used as inputs to the neural network and the analytical deformation and pore pressure values $\left\lbrace u, v, p \right\rbrace $ are used as training outputs. The performance of the model is measured by comparing the model-predicted deformation and pore pressure values with the training data based on a performance metrics. The metric chosen here is the mean squared error and the \emph{training loss} corresponding to each field variable is computed from
+
+$$
+\begin{align}
+	MSE_u &= \frac{1}{N} \sum_{k=1}^{N} \left| u(x_k,z_k,t_k) - \hat{u}(x_k,z_k,t_k) \right|^2 \\
+	MSE_v &= \frac{1}{N} \sum_{k=1}^{N} \left| v(x_k,z_k,t_k) - \hat{v}(x_k,z_k,t_k) \right|^2 \\
+	MSE_p &= \frac{1}{N} \sum_{k=1}^{N} \left| p(x_k,z_k,t_k) - \hat{p}(x_k,z_k,t_k) \right|^2 
+\end{align}
+$$
+
+where $N$ represents the number of training data points. The \emph{training loss} is calculated as the sum of the training losses for each field variable i.e.
+
+$$
+\begin{equation}
+	MSE_t = MSE_u + MSE_v + MSE_p.
+\end{equation}
+%
+$$
+
+The physical constraint based on the governing PDEs is applied by first evaluating the derivatives of the model predicted outputs at the input training points. The residuals corresponding to each field variable are defined and computed from
+
+$$
+\begin{align}
+	f(x,z,t) &= (\eta+1) \dfrac{\partial^2 \hat{u}}{\partial x^2} + \dfrac{\partial^2 \hat{u}}{\partial z^2} + \eta \dfrac{\partial^2 \hat{v}}{\partial x \partial z} + (\eta+1) \dfrac{\partial \hat{p}}{\partial x} \\ 
+	g(x,z,t) &= \dfrac{\partial^2 \hat{v}}{\partial x^2} + (\eta+1) \dfrac{\partial^2 \hat{v}}{\partial z^2} + \eta \dfrac{\partial^2 \hat{u}}{\partial x \partial z} + (\eta+1) \dfrac{\partial \hat{p}}{\partial z} \\
+	h(x,z,t) &= \dfrac{\partial^2 \hat{u}}{\partial t \partial x} + \dfrac{\partial^2 \hat{v}}{\partial t \partial z} - \dfrac{\partial^2 \hat{p}}{\partial x^2} - \dfrac{\partial^2 \hat{p}}{\partial z^2} - \beta Q	
+	\label{eq:fgh}
+\end{align}
+$$
