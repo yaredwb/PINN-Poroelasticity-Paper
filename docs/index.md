@@ -184,3 +184,31 @@ $$
 	\label{eq:fgh}
 \end{align}
 $$
+
+The constraint loss corresponding to each variable is the calculated from
+
+$$
+\begin{align}
+	MSE_f &= \frac{1}{N} \sum_{k=1}^{N} \left| f(x_k,z_k,t_k) \right|^2 \\
+	MSE_g &= \frac{1}{N} \sum_{k=1}^{N} \left| g(x_k,z_k,t_k) \right|^2 \\
+	MSE_h &= \frac{1}{N} \sum_{k=1}^{N} \left| h(x_k,z_k,t_k) \right|^2 
+\end{align}
+$$
+
+The total \emph{constraint loss} is then obtained from
+
+$$
+\begin{equation}
+	MSE_c = MSE_f + MSE_g + MSE_h.
+\end{equation}
+$$
+
+The final \emph{total loss} is then computed as the sum of the training loss and the constraint loss i.e.
+
+$$
+\begin{equation}
+	\mathcal{L} = MSE_t + MSE_c.
+\end{equation}
+$$
+
+The model training is performed such that the total loss $\mathcal{L}$ is minimized by the model optimizer. The loss minimization is performed by making the necessary adjustments to the hyper-parameters for \emph{bias-variance} tradeoff. The model hyper-parameters tuned during training include the \emph{number of layers}, \emph{number of hidden units}, \emph{batch size} and \emph{learning rate}. If the model is observed to have high bias, the neural network architecture (number of layers and hidden units) are adjusted and/or the model is trained longer. In case of high variance, the amount of training data is increased and/or the neural network architecture is adjusted. The batch size is adjusted to control the number of samples from the training data that are passed into the model before updating the trainable model parameters. The total loss here is minimized using the \emph{Adam optimizer} where its associated learning rate is tuned during the training process. 
