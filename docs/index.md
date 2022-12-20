@@ -13,7 +13,7 @@ A physics-informed neural network is presented for poroelastic problems with cou
 
 # Introduction
 
-In recent years, physics-informed neural networks (PINNs) have created a new trend at the intersection of machine learning and computational modeling research. Such models involve physical governing equations as constraints in the neural network such that training is performed both on example data and the governing equations. In addition to PINNs, various names are used by different researchers to refer to the concept and the most common ones include \emph{physics-based deep learning}, \emph{theory-guided data science} and \emph{deep hidden physics models}. In general, the aims of these applications include improving the efficiency, accuracy and generalization capability of numerical methods for the solution of PDEs.
+In recent years, physics-informed neural networks (PINNs) have created a new trend at the intersection of machine learning and computational modeling research. Such models involve physical governing equations as constraints in the neural network such that training is performed both on example data and the governing equations. In addition to PINNs, various names are used by different researchers to refer to the concept and the most common ones include *physics-based deep learning*, *theory-guided data science* and *deep hidden physics models*. In general, the aims of these applications include improving the efficiency, accuracy and generalization capability of numerical methods for the solution of PDEs.
 
 Since the pioneering work on PINNs by Raissi et al. (2019), where well-known partial differential equations (PDEs) such as Burgers' equation and Schroedinger's equation are investigated, the concept has been applied to various problems in computational science and engineering. The application areas are increasing rapidly with different variations in the general methodology.
 
@@ -155,7 +155,7 @@ The poroelastic governing equations are applied as constraints in the neural net
 
 ## Model Training and Hyper-parameters 
 
-The training data involves a selected sample from an exact analytical solution where data from the model spatial and temporal discretization bounds $\left\lbrace x, z, t \right\rbrace $ are used as inputs to the neural network and the analytical deformation and pore pressure values $\left\lbrace u, v, p \right\rbrace $ are used as training outputs. The performance of the model is measured by comparing the model-predicted deformation and pore pressure values with the training data based on a performance metrics. The metric chosen here is the mean squared error and the \emph{training loss} corresponding to each field variable is computed from
+The training data involves a selected sample from an exact analytical solution where data from the model spatial and temporal discretization bounds $\left\lbrace x, z, t \right\rbrace $ are used as inputs to the neural network and the analytical deformation and pore pressure values $\left\lbrace u, v, p \right\rbrace $ are used as training outputs. The performance of the model is measured by comparing the model-predicted deformation and pore pressure values with the training data based on a performance metrics. The metric chosen here is the mean squared error and the *training loss* corresponding to each field variable is computed from
 
 $$
 \begin{align}
@@ -165,7 +165,7 @@ $$
 \end{align}
 $$
 
-where $N$ represents the number of training data points. The \emph{training loss} is calculated as the sum of the training losses for each field variable i.e.
+where $N$ represents the number of training data points. The *training loss* is calculated as the sum of the training losses for each field variable i.e.
 
 $$
 \begin{equation}
@@ -195,7 +195,7 @@ $$
 \end{align}
 $$
 
-The total \emph{constraint loss} is then obtained from
+The total *constraint loss* is then obtained from
 
 $$
 \begin{equation}
@@ -203,7 +203,7 @@ $$
 \end{equation}
 $$
 
-The final \emph{total loss} is then computed as the sum of the training loss and the constraint loss i.e.
+The final *total loss* is then computed as the sum of the training loss and the constraint loss i.e.
 
 $$
 \begin{equation}
@@ -211,4 +211,4 @@ $$
 \end{equation}
 $$
 
-The model training is performed such that the total loss $\mathcal{L}$ is minimized by the model optimizer. The loss minimization is performed by making the necessary adjustments to the hyper-parameters for \emph{bias-variance} tradeoff. The model hyper-parameters tuned during training include the \emph{number of layers}, \emph{number of hidden units}, \emph{batch size} and \emph{learning rate}. If the model is observed to have high bias, the neural network architecture (number of layers and hidden units) are adjusted and/or the model is trained longer. In case of high variance, the amount of training data is increased and/or the neural network architecture is adjusted. The batch size is adjusted to control the number of samples from the training data that are passed into the model before updating the trainable model parameters. The total loss here is minimized using the \emph{Adam optimizer} where its associated learning rate is tuned during the training process. 
+The model training is performed such that the total loss $\mathcal{L}$ is minimized by the model optimizer. The loss minimization is performed by making the necessary adjustments to the hyper-parameters for *bias-variance* tradeoff. The model hyper-parameters tuned during training include the *number of layers*, *number of hidden units*, *batch size* and *learning rate*. If the model is observed to have high bias, the neural network architecture (number of layers and hidden units) are adjusted and/or the model is trained longer. In case of high variance, the amount of training data is increased and/or the neural network architecture is adjusted. The batch size is adjusted to control the number of samples from the training data that are passed into the model before updating the trainable model parameters. The total loss here is minimized using the *Adam optimizer* where its associated learning rate is tuned during the training process. 
