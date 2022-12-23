@@ -229,7 +229,7 @@ $$
 
 where $\delta$ represents the Dirac delta function and $\omega$ is the frequency of the oscillation. Illustration of the boundary conditions for the Barry and Mercer problem is shown in the figure below. The dimensions of the poroelastic medium are $x=a$ and $z=b$, which are nondimensionalized corresponding to the nondimensionalized governing equations. A point source Q is applied at an arbitrary location $(x_0, z_0)$.  
 
-![Barry and Mercer's Problem](assets/figs/barry_and_mercer.png){: .center-image }
+![Barry and Mercer's Problem](assets/figs/barry_and_mercer.png){: .center-image width="600px"}
 
 The analytical solutions are obtained by performing sine and cosine transformations, where the transformed variables are defined as $(n,q,s)$, producing a transformed system of equations. Inverse Laplace transformation of the solution in terms of $(n,q,s)$ results in the the following expressions:
 
