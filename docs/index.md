@@ -211,4 +211,50 @@ $$
 \end{equation}
 $$
 
-The model training is performed such that the total loss $\mathcal{L}$ is minimized by the model optimizer. The loss minimization is performed by making the necessary adjustments to the hyper-parameters for *bias-variance* tradeoff. The model hyper-parameters tuned during training include the *number of layers*, *number of hidden units*, *batch size* and *learning rate*. If the model is observed to have high bias, the neural network architecture (number of layers and hidden units) are adjusted and/or the model is trained longer. In case of high variance, the amount of training data is increased and/or the neural network architecture is adjusted. The batch size is adjusted to control the number of samples from the training data that are passed into the model before updating the trainable model parameters. The total loss here is minimized using the *Adam optimizer* where its associated learning rate is tuned during the training process. 
+The model training is performed such that the total loss $\mathcal{L}$ is minimized by the model optimizer. The loss minimization is performed by making the necessary adjustments to the hyper-parameters for *bias-variance* tradeoff. The model hyper-parameters tuned during training include the *number of layers*, *number of hidden units*, *batch size* and *learning rate*. If the model is observed to have high bias, the neural network architecture (number of layers and hidden units) are adjusted and/or the model is trained longer. In case of high variance, the amount of training data is increased and/or the neural network architecture is adjusted. The batch size is adjusted to control the number of samples from the training data that are passed into the model before updating the trainable model parameters. The total loss here is minimized using the *Adam optimizer* where its associated learning rate is tuned during the training process.
+
+# Numerical Example
+
+## The Problem of Barry and Mercer
+
+The source problem of Barry and Mercer involves the deformation of a poroelastic medium due to injection and extraction from a point source in the medium; Barry and Mercer (1999). An exact analytical solution is obtained for the problem by choosing the boundary conditions carefully. The idealization of the boundary conditions makes the problem not entirely realistic but still resembles an oil injection/extraction problem; Phillips (2005).
+
+An illustration of the problem is shown in Figure~\ref{fig:barry_and_mercer}. The poroelastic domain has dimensions of $x=a$ and $z=b$. We consider the source problem variant from Barry and Mercer's original treatise here where all the four boundaries are assumed to be drained i.e. $p=0$ all four boundaries. The displacement boundary conditions are chosen such that $u=0$ and $\frac{\partial v}{\partial z}=0$ along the boundaries $z=0$ and $z=b$ and $v=0$ and $\frac{\partial u}{\partial x}=0$ along the boundaries $x=0$ and $x=a$. An oscillating point source at $(x_0, z_0)$ is applied and is given by
+
+$$
+\begin{equation}
+	Q(x,z,t) = \delta(x-x_0) \delta(z-z_0) \sin \omega t
+\end{equation}
+$$
+
+where $\delta$ represents the Dirac delta function and $\omega$ is the frequency of the oscillation. Illustration of the boundary conditions for the Barry and Mercer problem is shown in the figure below. The dimensions of the poroelastic medium are $x=a$ and $z=b$, which are nondimensionalized corresponding to the nondimensionalized governing equations. A point source Q is applied at an arbitrary location $(x_0, z_0)$.  
+
+![Barry and Mercer's Problem](assets/figs/barry_and_mercer.svg){: .center-image }
+
+The analytical solutions are obtained by performing sine and cosine transformations, where the transformed variables are defined as $(n,q,s)$, producing a transformed system of equations. Inverse Laplace transformation of the solution in terms of $(n,q,s)$ results in the the following expressions:
+
+$$
+\begin{align}
+	\hat{p}(n,q,t) &= -\dfrac{\beta \sin \lambda_n x_0 \sin \lambda_q z_0}{\lambda_{nq}^2 + \omega^2} \left( \lambda_{nq} \sin \omega t - \omega \cos \omega t + \omega e^{-\lambda_{nq} t} \right) \\
+	\hat{u}(n,q,t) &= \dfrac{\lambda_n}{\lambda_{nq}} \hat{p}(n,q,t) \\
+	\hat{v}(n,q,t) &= \dfrac{\lambda_q}{\lambda_{nq}} \hat{p}(n,q,t).  
+\end{align}
+$$
+
+where
+
+$$
+\begin{equation}
+	\lambda_n = \frac{n\pi}{a}, \qquad  \lambda_q = \frac{q\pi}{b} \qquad \text{and} \qquad \lambda_{nq} = \lambda_n^2 + \lambda_q^2.
+\end{equation}
+$$
+
+The final solutions for the deformations and pore pressure, after performing sine and cosine transformations, are given by 
+
+$$
+\begin{align}
+	u(x,z,t) &= \dfrac{4}{ab} \sum_{n=1}^{\infty} \sum_{q=1}^{\infty} \hat{u}(n,q,t) \cos \lambda_n x \sin \lambda_q z \\
+	v(x,z,t) &= \dfrac{4}{ab} \sum_{n=1}^{\infty} \sum_{q=1}^{\infty} \hat{v}(n,q,t) \sin \lambda_n x \cos \lambda_q z \\
+	p(x,z,t) &= \dfrac{4}{ab} \sum_{n=1}^{\infty} \sum_{q=1}^{\infty} \hat{p}(n,q,t) \sin \lambda_n x \sin \lambda_q z.
+\end{align}
+$$
