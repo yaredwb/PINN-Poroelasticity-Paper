@@ -258,3 +258,11 @@ $$
 	p(x,z,t) &= \dfrac{4}{ab} \sum_{n=1}^{\infty} \sum_{q=1}^{\infty} \hat{p}(n,q,t) \sin \lambda_n x \sin \lambda_q z.
 \end{align}
 $$
+
+## Results
+
+An analytical solution for Barry and Mercer's source problem is generated with the following parameters: $a=1, b=1, \beta=2, \omega=1, x_0=0.25, z_0=0.25$ and $\eta=1.5$. The boundary conditions are as illustrated in the previous figure. The spatial discretization grid size used is $N_x \times N_z=41 \times 41$ with the time bounds of $\left[ 0, 2\pi \right] $ where the time steps are defined with a temporal discretization size of $N_t=41$. This solution generates $N_x \times N_y \times N_t$ data points with known inputs $\left\lbrace x, z, t \right\rbrace $ and known outputs $\left\lbrace u, v, p \right\rbrace $.
+
+A neural network with 5 hidden layers and 40 hidden units at each layer is set up as the model to be trained, after a certain bias-variance tradeoff adjustments. From the available known inputs and outputs in the analytical solution, a training data of size $N=20000$ is randomly selected. A batch size of 5000 is used for training. Adam optimizer is used for training with a learning rate of 0.001.
+
+
