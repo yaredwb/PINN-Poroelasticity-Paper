@@ -219,7 +219,7 @@ The model training is performed such that the total loss $\mathcal{L}$ is minimi
 
 The source problem of Barry and Mercer involves the deformation of a poroelastic medium due to injection and extraction from a point source in the medium; Barry and Mercer (1999). An exact analytical solution is obtained for the problem by choosing the boundary conditions carefully. The idealization of the boundary conditions makes the problem not entirely realistic but still resembles an oil injection/extraction problem; Phillips (2005).
 
-An illustration of the problem is shown in Figure~\ref{fig:barry_and_mercer}. The poroelastic domain has dimensions of $x=a$ and $z=b$. We consider the source problem variant from Barry and Mercer's original treatise here where all the four boundaries are assumed to be drained i.e. $p=0$ all four boundaries. The displacement boundary conditions are chosen such that $u=0$ and $\frac{\partial v}{\partial z}=0$ along the boundaries $z=0$ and $z=b$ and $v=0$ and $\frac{\partial u}{\partial x}=0$ along the boundaries $x=0$ and $x=a$. An oscillating point source at $(x_0, z_0)$ is applied and is given by
+An illustration of the problem is shown in the figure below. The poroelastic domain has dimensions of $x=a$ and $z=b$. We consider the source problem variant from Barry and Mercer's original treatise here where all the four boundaries are assumed to be drained i.e. $p=0$ all four boundaries. The displacement boundary conditions are chosen such that $u=0$ and $\frac{\partial v}{\partial z}=0$ along the boundaries $z=0$ and $z=b$ and $v=0$ and $\frac{\partial u}{\partial x}=0$ along the boundaries $x=0$ and $x=a$. An oscillating point source at $(x_0, z_0)$ is applied and is given by
 
 $$
 \begin{equation}
