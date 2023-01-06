@@ -267,4 +267,7 @@ A neural network with 5 hidden layers and 40 hidden units at each layer is set u
 
 ![Displacement versus Time](assets/figs/uv_vs_t.png){: .center-image}
 
+The evolution of the mean squared errors $MSE_u$ and $MSE_v$ (left) and $MSE_f$ and $MSE_g$ (right) as the training progresses i.e. as a function of the number of epochs, is shown in the plots below.
+
+![MSEs vs Epochs](assets/figs/MSEs_vs_Epochs.png){: .center-image}
 
