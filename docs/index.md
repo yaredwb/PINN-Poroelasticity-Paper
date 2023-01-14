@@ -29,7 +29,7 @@ The general mass balance equation for a two-phase porous medium (fluid saturated
 
 $$
 \begin{equation}
-\alpha \nabla \cdot \dot{\boldsymbol{\overline{u}}} + \left( \frac{\alpha-n}{K_\mathrm{s}} + \frac{n}{K_\mathrm{f}} \right) \frac{\partial \bar{p}}{\partial \bar{t}} + \nabla \cdot \boldsymbol{\overline{w}} = Q, \label{eq:genmasbal} 
+\alpha \nabla \cdot \dot{\boldsymbol{\overline{u}}} + \left( \frac{\alpha-n}{K_\mathrm{s}} + \frac{n}{K_\mathrm{f}} \right) \frac{\partial \bar{p}}{\partial \bar{t}} + \nabla \cdot \boldsymbol{\overline{w}} = Q, \label{eq:genmasbal}
 \end{equation}
 $$
 
@@ -37,7 +37,7 @@ where $ \alpha = 1 - K/K_\mathrm{s} $ is Biot's coefficient, $ \boldsymbol{\over
 
 $$
 \begin{equation}
-\nabla \cdot \dot{\boldsymbol{\overline{u}}} + \nabla \cdot \boldsymbol{\overline{w}} = Q. \label{eq:masbalincompressible} 
+\nabla \cdot \dot{\boldsymbol{\overline{u}}} + \nabla \cdot \boldsymbol{\overline{w}} = Q. \label{eq:masbalincompressible}
 \end{equation}
 $$
 
@@ -104,7 +104,7 @@ For a two-dimensional problem, combining equations \eqref{eq:mombaleff}, \eqref{
 $$
 \begin{align}
 (\lambda + 2 \mu) \frac{\partial^2 \bar{u}}{\partial \bar{x}^2} + \mu \frac{\partial^2 \bar{u}}{\partial \bar{z}^2} + (\lambda + \mu) \frac{\partial^2 \bar{v}}{\partial \bar{x} \partial \bar{z}} + \frac{\partial \bar{p}}{\partial \bar{x}} &= 0, \label{eq:mombalx} \\
-\mu \frac{\partial^2 \bar{v}}{\partial \bar{x}^2} + (\lambda + 2 \mu) \frac{\partial^2 \bar{v}}{\partial \bar{z}^2} + (\lambda + \mu) \frac{\partial^2 \bar{u}}{\partial \bar{x} \partial \bar{z}} + \frac{\partial \bar{p}}{\partial \bar{z}} &= 0. \label{eq:mombalz} 
+\mu \frac{\partial^2 \bar{v}}{\partial \bar{x}^2} + (\lambda + 2 \mu) \frac{\partial^2 \bar{v}}{\partial \bar{z}^2} + (\lambda + \mu) \frac{\partial^2 \bar{u}}{\partial \bar{x} \partial \bar{z}} + \frac{\partial \bar{p}}{\partial \bar{z}} &= 0. \label{eq:mombalz}
 \end{align}
 $$
 
@@ -115,7 +115,7 @@ Equations \eqref{eq:masbalxz}, \eqref{eq:mombalx} and \eqref{eq:mombalz} are the
 $$
 \begin{align}
 x &= \frac{\bar{x}}{l}, \quad z = \frac{\bar{z}}{l}, \quad t = \frac{(\lambda + 2\mu)k}{\gamma_\mathrm{f} l^2} \bar{t}, \label{eq:nondimxzt} \\
-u &= \frac{\bar{u}}{l}, \quad v = \frac{\bar{v}}{l}, \quad p = \frac{\bar{p}}{\lambda + 2\mu}. \label{eq:nondimuvp}  
+u &= \frac{\bar{u}}{l}, \quad v = \frac{\bar{v}}{l}, \quad p = \frac{\bar{p}}{\lambda + 2\mu}. \label{eq:nondimuvp}
 \end{align}
 $$
 
@@ -124,8 +124,8 @@ Applying equations \eqref{eq:nondimxzt} and \eqref{eq:nondimuvp} to equations \e
 $$
 \begin{align}
 \frac{\partial^2 u}{\partial t \partial x} + \frac{\partial^2 v}{\partial t \partial z} - \frac{\partial^2 p}{\partial x^2} - \frac{\partial^2 p}{\partial z^2} - \beta Q &= 0, \label{eq:masbalnondim} \\
-(\eta+1) \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial z^2} + \eta \frac{\partial^2 v}{\partial x \partial z} + (\eta+1) \frac{\partial p}{\partial x} &= 0, \label{eq:mombalnondimx} \\ 
-\frac{\partial^2 v}{\partial x^2} + (\eta+1) \frac{\partial^2 v}{\partial z^2} + \eta \frac{\partial^2 u}{\partial x \partial z} + (\eta+1) \frac{\partial p}{\partial z} &= 0, \label{eq:mombalnondimz}    
+(\eta+1) \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial z^2} + \eta \frac{\partial^2 v}{\partial x \partial z} + (\eta+1) \frac{\partial p}{\partial x} &= 0, \label{eq:mombalnondimx} \\
+\frac{\partial^2 v}{\partial x^2} + (\eta+1) \frac{\partial^2 v}{\partial z^2} + \eta \frac{\partial^2 u}{\partial x \partial z} + (\eta+1) \frac{\partial p}{\partial z} &= 0, \label{eq:mombalnondimz}
 \end{align}
 $$
 
@@ -139,7 +139,7 @@ $$
 
 # Deep Learning Model
 
-The architecture of the deep learning model, the model hyper-parameters, the model performance metrics for training and automatic differentiation, which enables applying PDEs as constraints, are discussed in this section. 
+The architecture of the deep learning model, the model hyper-parameters, the model performance metrics for training and automatic differentiation, which enables applying PDEs as constraints, are discussed in this section.
 
 ## Neural network architecture
 
@@ -153,7 +153,7 @@ The activation function used at the hidden units is $\sigma(\boldsymbol{x}) = Re
 
 The poroelastic governing equations are applied as constraints in the neural network model by using automatic differentiation (AD) to evaluate the terms in the PDEs based on the model predicted outputs. This makes AD an in important element of the deep learning model. It should be emphasized that AD is different from other methods of computing derivatives using computers; Baydin et al. (2017). The four ways of computing derivatives on computers are: a) manually obtaining the derivatives and coding them; b) numerical differentiation using finite difference approximations; c) computer-based symbolic differentiation and subsequent evaluation based on the algebraic expression; and d) AD, which is the enabler in the neural network model here. The main difference between AD and the other methods is that AD computes the numerical values of the derivatives by using the rules of symbolic differentiation but by keeping track of the derivative values at different stages of numerical operation instead of obtaining the final expressions for the derivatives. This is done by exploiting the fact that any derivative computation, no matter how complex, is composed of a sequence of elementary arithmetic operations and elementary function evaluations. It applies the chain rule repeatedly to these operations until the desired derivative is computed. The fact that AD keeps track of the derivative values makes it computationally superior to the other two commonly used methods of computing derivatives, namely numerical differentiation and symbolic differentiation. The approach used by AD also makes it accurate at machine precision levels. For our problem here, once a deep neural network is designed with the input and output layers described in the previous section, AD is used to estimate the derivative terms in the governing equilibrium and mass balance equations. The model implementation is performed in `TensorFlow` and its AD capability is utilized. `TensorFlow` is an open-source software developed by the Google Brain team at Google and it is a symbolic math library that can be used for different tasks such as data flow, differentiable programming and machine learning; see Abadi et al. (2016).
 
-## Model Training and Hyper-parameters 
+## Model Training and Hyper-parameters
 
 The training data involves a selected sample from an exact analytical solution where data from the model spatial and temporal discretization bounds $\left\lbrace x, z, t \right\rbrace $ are used as inputs to the neural network and the analytical deformation and pore pressure values $\left\lbrace u, v, p \right\rbrace $ are used as training outputs. The performance of the model is measured by comparing the model-predicted deformation and pore pressure values with the training data based on a performance metrics. The metric chosen here is the mean squared error and the *training loss* corresponding to each field variable is computed from
 
@@ -161,7 +161,7 @@ $$
 \begin{align}
 	MSE_u &= \frac{1}{N} \sum_{k=1}^{N} \left| u(x_k,z_k,t_k) - \hat{u}(x_k,z_k,t_k) \right|^2 \\
 	MSE_v &= \frac{1}{N} \sum_{k=1}^{N} \left| v(x_k,z_k,t_k) - \hat{v}(x_k,z_k,t_k) \right|^2 \\
-	MSE_p &= \frac{1}{N} \sum_{k=1}^{N} \left| p(x_k,z_k,t_k) - \hat{p}(x_k,z_k,t_k) \right|^2 
+	MSE_p &= \frac{1}{N} \sum_{k=1}^{N} \left| p(x_k,z_k,t_k) - \hat{p}(x_k,z_k,t_k) \right|^2
 \end{align}
 $$
 
@@ -178,9 +178,9 @@ The physical constraint based on the governing PDEs is applied by first evaluati
 
 $$
 \begin{align}
-	f(x,z,t) &= (\eta+1) \dfrac{\partial^2 \hat{u}}{\partial x^2} + \dfrac{\partial^2 \hat{u}}{\partial z^2} + \eta \dfrac{\partial^2 \hat{v}}{\partial x \partial z} + (\eta+1) \dfrac{\partial \hat{p}}{\partial x} \\ 
+	f(x,z,t) &= (\eta+1) \dfrac{\partial^2 \hat{u}}{\partial x^2} + \dfrac{\partial^2 \hat{u}}{\partial z^2} + \eta \dfrac{\partial^2 \hat{v}}{\partial x \partial z} + (\eta+1) \dfrac{\partial \hat{p}}{\partial x} \\
 	g(x,z,t) &= \dfrac{\partial^2 \hat{v}}{\partial x^2} + (\eta+1) \dfrac{\partial^2 \hat{v}}{\partial z^2} + \eta \dfrac{\partial^2 \hat{u}}{\partial x \partial z} + (\eta+1) \dfrac{\partial \hat{p}}{\partial z} \\
-	h(x,z,t) &= \dfrac{\partial^2 \hat{u}}{\partial t \partial x} + \dfrac{\partial^2 \hat{v}}{\partial t \partial z} - \dfrac{\partial^2 \hat{p}}{\partial x^2} - \dfrac{\partial^2 \hat{p}}{\partial z^2} - \beta Q	
+	h(x,z,t) &= \dfrac{\partial^2 \hat{u}}{\partial t \partial x} + \dfrac{\partial^2 \hat{v}}{\partial t \partial z} - \dfrac{\partial^2 \hat{p}}{\partial x^2} - \dfrac{\partial^2 \hat{p}}{\partial z^2} - \beta Q
 	\label{eq:fgh}
 \end{align}
 $$
@@ -191,7 +191,7 @@ $$
 \begin{align}
 	MSE_f &= \frac{1}{N} \sum_{k=1}^{N} \left| f(x_k,z_k,t_k) \right|^2 \\
 	MSE_g &= \frac{1}{N} \sum_{k=1}^{N} \left| g(x_k,z_k,t_k) \right|^2 \\
-	MSE_h &= \frac{1}{N} \sum_{k=1}^{N} \left| h(x_k,z_k,t_k) \right|^2 
+	MSE_h &= \frac{1}{N} \sum_{k=1}^{N} \left| h(x_k,z_k,t_k) \right|^2
 \end{align}
 $$
 
@@ -227,7 +227,7 @@ $$
 \end{equation}
 $$
 
-where $\delta$ represents the Dirac delta function and $\omega$ is the frequency of the oscillation. Illustration of the boundary conditions for the Barry and Mercer problem is shown in the figure below. The dimensions of the poroelastic medium are $x=a$ and $z=b$, which are nondimensionalized corresponding to the nondimensionalized governing equations. A point source Q is applied at an arbitrary location $(x_0, z_0)$.  
+where $\delta$ represents the Dirac delta function and $\omega$ is the frequency of the oscillation. Illustration of the boundary conditions for the Barry and Mercer problem is shown in the figure below. The dimensions of the poroelastic medium are $x=a$ and $z=b$, which are nondimensionalized corresponding to the nondimensionalized governing equations. A point source Q is applied at an arbitrary location $(x_0, z_0)$.
 
 ![Barry and Mercer's Problem](assets/figs/barry_and_mercer.png){: .center-image width="600px"}
 
@@ -237,7 +237,7 @@ $$
 \begin{align}
 	\hat{p}(n,q,t) &= -\dfrac{\beta \sin \lambda_n x_0 \sin \lambda_q z_0}{\lambda_{nq}^2 + \omega^2} \left( \lambda_{nq} \sin \omega t - \omega \cos \omega t + \omega e^{-\lambda_{nq} t} \right) \\
 	\hat{u}(n,q,t) &= \dfrac{\lambda_n}{\lambda_{nq}} \hat{p}(n,q,t) \\
-	\hat{v}(n,q,t) &= \dfrac{\lambda_q}{\lambda_{nq}} \hat{p}(n,q,t).  
+	\hat{v}(n,q,t) &= \dfrac{\lambda_q}{\lambda_{nq}} \hat{p}(n,q,t).
 \end{align}
 $$
 
@@ -249,7 +249,7 @@ $$
 \end{equation}
 $$
 
-The final solutions for the deformations and pore pressure, after performing sine and cosine transformations, are given by 
+The final solutions for the deformations and pore pressure, after performing sine and cosine transformations, are given by
 
 $$
 \begin{align}
@@ -271,13 +271,13 @@ The evolution of the mean squared errors $MSE_u$ and $MSE_v$ (left) and $MSE_f$ 
 
 ![MSEs vs Epochs](assets/figs/MSEs_vs_Epochs.png){: .center-image}
 
-A look at the performance metrics of the deep learning model shows that the neural network is trained with a good bias-variance tradeoff. This can be seen in the development of the mean squared errors shown in the previous figure, corresponding to $MSE_u$ and $MSE_v$ on the left plot and $MSE_f$ and $MSE_g$ on the right plot. The $ L_2 $ norms of the errors for the predicted horizontal and vertical displacements were found to be $3.826 \times 10^{-2}$ and $5.263 \times 10^{-2}$, respectively. 
+A look at the performance metrics of the deep learning model shows that the neural network is trained with a good bias-variance tradeoff. This can be seen in the development of the mean squared errors shown in the previous figure, corresponding to $MSE_u$ and $MSE_v$ on the left plot and $MSE_f$ and $MSE_g$ on the right plot. The $ L_2 $ norms of the errors for the predicted horizontal and vertical displacements were found to be $3.826 \times 10^{-2}$ and $5.263 \times 10^{-2}$, respectively.
 
 As an injection and extraction problem in a poroelastic medium, the pore pressure values are concentrated at the injection/extraction point. This makes the magnitude of the pore pressures zero or close to zero over the majority of the domain. Hence, the neural network set up used here is not best suited to train on such a sparse data. This is reflected by the $ L_2 $ norm of the error in the predicted pore pressure, which is found to be $8.071 \times 10^{-2}$. The predicted pore pressure values, however, did not have a significant effect on the horizontal and vertical deformations when used in the constraining differential equations. For the specific problem studied here, if higher accuracy is required for the predicted pore pressures, it may be necessary to use a deep learning model with dual neural networks or data processing techniques best suited to process the training pore pressure data. The model presented here works reasonably well as a demonstration of constraining neural networks using the governing equations of poroelasticity.
 
 # Summary and Conclusions
 
-A physics-informed deep neural network is presented for flow and deformation in poroelastic media. The governing differential equations for poroelasticity are the mass balance and equilibrium equations complemented respectively by Darcy's law and an elastic stress-strain relationship. An isotropic incompressible porous medium is assumed here in the derivation of the mass balance equation. The equilibrium equations are derived for static poroelastic problems where infinitesimal strains are assumed. Lamé's parameters are used in defining the elastic stress-strain relationship. Both governing equations are specifically derived for a two dimensional case with the demonstration problem here in mind. The governing equations in 2D are nondimensionalized with respect to a chosen set parameters. 
+A physics-informed deep neural network is presented for flow and deformation in poroelastic media. The governing differential equations for poroelasticity are the mass balance and equilibrium equations complemented respectively by Darcy's law and an elastic stress-strain relationship. An isotropic incompressible porous medium is assumed here in the derivation of the mass balance equation. The equilibrium equations are derived for static poroelastic problems where infinitesimal strains are assumed. Lamé's parameters are used in defining the elastic stress-strain relationship. Both governing equations are specifically derived for a two dimensional case with the demonstration problem here in mind. The governing equations in 2D are nondimensionalized with respect to a chosen set parameters.
 
 The architecture of the neural network is discussed, where a fully-connected network is used here. The neural network inputs are selected data from the spatial and temporal domains of the poroelastic problem and the outputs are the deformations (horizontal and vertical) and the pore pressure. The governing partial differential equations are applied as constraints in the neural network by evaluating their residuals based on the predicted deformations and pore pressure values. This is enabled by automatic differentiation, a discussion for which is briefly presented. The model performance is measured by using mean squared errors as a metric. The mean squared errors for the deformations and for the pore pressure are evaluated based on the model predictions and the known training data. The training loss is defined as the sum of the mean squared errors for each field variable. In a similar way, mean squared errors are defined for the residuals of the constraining partial differential equations. The constraint loss is defined as the sum of the mean squared errors for each governing equation. The final total loss is defined as the sum of the training and constraint losses.
 
